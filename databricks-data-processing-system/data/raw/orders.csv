@@ -1,0 +1,14 @@
+order_id,customer_id,product,quantity,unit_price,status,order_date
+5001,C001,laptop,1,55000,delivered,2026-09-01
+5002,C002,headphones,2,2500.5,shipped,2026-09-01
+5003,C003,desk chair,1,7800,placed,2026-09-02
+5004,C001,notebook,10,45,delivered,2026-09-02
+5005,C004,monitor,2,12000,cancelled,2026-09-03
+5006,C005,laptop,1,58000,delivered,2026-09-03
+5007,C002,pen set,5,120,delivered,2026-09-04
+5007,C002,pen set,5,120,delivered,2026-09-04
+5008,C004,headphones,,2500.5,placed,2026-09-04
+5009,C003,monitor,1,-12500,placed,2026-09-05
+5010,C006,notebook,4,45,shipped,2026-09-05
+5011,C005,desk chair,2,7800,returned,2026-09-06
+5012,C001,monitor,1,12500,delivered,2026-09-06

@@ -1,0 +1,32 @@
+# Databricks Asset Bundle: deploy the pipeline as a scheduled job.
+#   databricks bundle validate
+#   databricks bundle deploy -t dev
+#   databricks bundle run dps_pipeline -t dev
+bundle:
+  name: databricks-data-processing-system
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://<your-workspace>.azuredatabricks.net
+
+resources:
+  jobs:
+    dps_pipeline:
+      name: dps-pipeline-${bundle.target}
+      schedule:
+        quartz_cron_expression: "0 0 6 * * ?"
+        timezone_id: Asia/Kolkata
+        pause_status: PAUSED
+      tasks:
+        - task_key: run_pipeline
+          notebook_task:
+            notebook_path: ./notebooks/run_pipeline.py
+            base_parameters:
+              base_path: /Volumes/main/dps/data
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: Standard_DS3_v2
+            num_workers: 1
